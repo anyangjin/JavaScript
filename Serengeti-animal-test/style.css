@@ -1,0 +1,11 @@
+/* h1 {
+  text-align: center;
+} */
+article {
+  display: flex;
+  flex-direction: column;
+}
+
+/* .question {
+  display: none;
+} */
