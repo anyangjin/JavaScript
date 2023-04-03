@@ -2,6 +2,10 @@
 let a;
 console.log(a); // undefined
 
+if (typeof a === "undefined") {
+    console.log('a에 아무것도 할당되지 않았습니다!')
+}
+
 //앞에서 배운것처럼 undefined는 falsy 값으로 평가되기 때문에 조건문에서 변수에 값이 할당되어 있는 상태인지 확인하고자 할때 자주 사용됩니다.
 
 let y;
