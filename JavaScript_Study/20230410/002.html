@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <article id="container">
+      <ul>
+        <li>탕수육</li>
+        <li class="item-second">유산슬</li>
+        <li>짜장면</li>
+      </ul>
+    </article>
+
+    <script>
+      // const cont = document.getElementById("container");
+      // const item1 = cont.getElementsByTagName("li");
+      // const item3 = cont.querySelectorAll("li");
+      // console.log(cont.getElementsByTagName("li"));
+      // console.log(cont.querySelectorAll("li"));
+      // console.log(item1);
+      // console.log(item3);
+
+      // const listItem = document.createElement("li");
+      // container.append(listItem);
+
+      const container = document.getElementById("container");
+      console.log(container.getElementsByTagName("li"));
+      console.log(container.querySelectorAll("li"));
+
+      container.querySelector(".item-second").textContent = "라조기";
+      //라조기로 바뀜. 앞 부분 들도 업데이트가 됨.
+      container.querySelector(".item-second").classList.add("new");
+      // 클래스가 새로 붙는걸 볼 수 있다.
+
+      // 점심 식단
+      // <article id="container">
+      //     <ul>
+      //         <li>탕수육</li>
+      //         <li class="item-second">유산슬</li>
+      //         <li>짜장면</li>
+      //     </ul>
+      // </article>
+      // 저녁 식단
+      // <article>
+      //     <ul>
+      //         <li>된장국</li>
+      //         <li class="item-second">김치찌게</li>
+      //         <li>해장국</li>
+      //     </ul>
+      // </article>
+      // <script>
+      //     const container = document.getElementById('container');
+      //     // console.log(container.getElementsByTagName('li')[0]);
+      //     // console.log(container.querySelector('#container'));
+      //     console.log(container.getElementsByTagName('li'));
+      //     console.log(container.querySelectorAll('li'));
+
+      //     container.querySelector('.item-second').textContent = '라조기';
+      //     container.querySelector('.item-second').classList.add('new');
+
+      //     // const target = document.querySelector('.item-second');
+      //     // target.remove();
+
+      //     // const listItem = document.createElement('li');
+      //     // container.append(listItem);
+    </script>
+  </body>
+</html>
