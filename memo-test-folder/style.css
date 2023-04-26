@@ -1,0 +1,62 @@
+body {
+  font-family: "Nanum Gothic", sans-serif;
+  background-color: #f2f2f2;
+}
+
+#memo-container {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+}
+
+#memo {
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+}
+
+#save-button,
+#cancel-button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#cancel-button {
+  background-color: #f44336;
+}
+
+#save-button:hover,
+#cancel-button:hover {
+  opacity: 0.8;
+}
+
+.memo-item {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.memo-text {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.memo-datetime {
+  font-size: 12px;
+  color: #aaa;
+}

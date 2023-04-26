@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+
+      h1 {
+        margin-top: 0;
+        padding: 20px;
+        background-color: #157be1;
+        color: #fff;
+        text-align: center;
+      }
+
+      #memoForm {
+        margin: 20px 0;
+      }
+
+      #memoTitle {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+        margin-bottom: 10px;
+      }
+
+      #memoBody {
+        width: 100%;
+        height: 100px;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+        resize: vertical;
+      }
+
+      #memoBody:focus {
+        outline: none;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      #memoList {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      #memoList li {
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+      }
+
+      #memoList li h3 {
+        margin: 0;
+      }
+
+      #memoList li p {
+        margin: 5px 0 0 0;
+      }
+
+      #memoList li button {
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>MEMO PAD</h1>
+    <form>
+      <input type="text" id="memoTitle" placeholder="제목을 입력하세요" />
+      <br />
+      <textarea id="memoBody" placeholder="내용을 입력하세요"></textarea>
+      <br />
+      <button type="button" onclick="saveMemo()">Save</button>
+    </form>
+    <h2>MEMO LIST</h2>
+    <ul id="memoList"></ul>
+    <script>
+      // 저장된 메모를 저장할 배열
+      let memos = [];
+
+      // 저장된 메모를 화면에 보여주는 함수
+      function showMemos() {
+        // 메모 리스트 엘리먼트를 찾음
+        const memoList = document.getElementById("memoList");
+
+        // 이전에 보여준 메모를 모두 지움
+        memoList.innerHTML = "";
+
+        // 각각의 메모마다 li 엘리먼트를 만들어 메모 내용과 삭제 버튼을 추가함
+        memos.forEach((memo, index) => {
+          const li = document.createElement("li");
+          const time = new Date(memo.timestamp).toLocaleString();
+          const textNode = document.createTextNode(`${time}: ${memo.text}`);
+          const deleteButton = document.createElement("button");
+          deleteButton.innerHTML = "삭제";
+          deleteButton.addEventListener("click", () => {
+            memos.splice(index, 1);
+            showMemos();
+          });
+          li.appendChild(textNode);
+          li.appendChild(deleteButton);
+          memoList.appendChild(li);
+        });
+      }
+
+      // 저장 버튼을 눌렀을 때 실행되는 함수
+      function saveMemo() {
+        // 입력한 메모 내용을 가져옴
+        const memoText = document.getElementById("memo").value;
+
+        // 메모가 비어있으면 저장하지 않음
+        if (!memoText) {
+          return;
+        }
+
+        // 현재 시간을 저장함
+        const timestamp = Date.now();
+
+        // 새로운 메모 객체를 생성하여 배열에 추가함
+        const memo = { text: memoText, timestamp };
+        memos.push(memo);
+
+        // 메모를 화면에 보여줌
+        showMemos();
+
+        // 입력한 메모 내용을 지움
+        document.getElementById("memo").value = "";
+      }
+
+      // 페이지가 로드될 때 저장된 메모들을 보여줌
+      window.onload = showMemos;
+    </script>
+  </body>
+</html>
